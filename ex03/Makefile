@@ -6,7 +6,7 @@
 #    By: anouri <anouri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 14:29:57 by anouri            #+#    #+#              #
-#    Updated: 2023/12/22 17:18:25 by anouri           ###   ########.fr        #
+#    Updated: 2023/12/26 15:41:45 by anouri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ NAME = UnnecessaryViolence
 
 SRCS = main.cpp \
 	Weapon.cpp \
+	HumanA.cpp \
+	HumanB.cpp \
 	
 OBJS = ${SRCS:.cpp=.o}
 

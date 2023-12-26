@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 17:18:42 by anouri            #+#    #+#             */
-/*   Updated: 2023/12/26 15:36:24 by anouri           ###   ########.fr       */
+/*   Created: 2023/12/26 13:41:17 by anouri            #+#    #+#             */
+/*   Updated: 2023/12/26 15:45:47 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include <iostream>
+#include "Weapon.hpp"
 
-class Weapon
+class HumanB
 {
     private:
-        std::string _type;
+        std::string _name;
+        Weapon *_weapon;
     public:
-        // Weapon(/* args */);
-        Weapon(std::string type);
-        ~Weapon();
-        const std::string& getType();
-        void setType(const std::string type);
+        HumanB(std::string name);
+        HumanB(std::string const &name, Weapon &weapon);
+        ~HumanB();
+        void setWeapon(Weapon &club);
+        void attack();
 };
 
 #endif
