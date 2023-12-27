@@ -6,33 +6,43 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:55:55 by anouri            #+#    #+#             */
-/*   Updated: 2023/12/26 17:38:40 by anouri           ###   ########.fr       */
+/*   Updated: 2023/12/27 18:02:16 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-this main fnction takes 3 parameters
-    1- filename(must exist)
-    2- string 1
-    3- string 2
-    
-    create a newfile
-    copy the content of filename ito newfile while replacing
-    every string 1 with string 2
-
-
-*/
-#include<iostream>
+#include <iostream>
 #include <fstream>
-
-void    Copy(std::string line, std::ofstream& outfile)
+/*bonjour main hello main main main helooooooool main*/
+std::string replace(std::string const line, std::string s1, std::string s2)
 {
-    outfile << line << std::endl;
+    std::string newLine;
+    size_t pos = 0;
+    size_t found;
+    while (pos < line.length())
+    {
+        if((found = line.find(s1, pos)) != std::string::npos)
+        {
+            std::cout << found << std::endl;
+            newLine += line.substr(pos, found - pos);
+            newLine += s2;
+            std::cout << newLine << std::endl;
+            pos = found + s1.length();
+            // newLine += line.substr(pos);
+        }
+        else
+        {
+            newLine += line.substr(pos);            
+            break;
+        }
+    }
+    return newLine;
 }
 
 void CopyAndReplace(std::string filename, std::string s1, std::string s2)
 {
     std::string line;
+    std::string newLine;
+    
     std::ifstream infile(filename); 
     if (!infile)
     {
@@ -46,12 +56,10 @@ void CopyAndReplace(std::string filename, std::string s1, std::string s2)
         return;
     }
     while (infile >> line)
+    while(getline (infile, line))
     {
-        if (line.find("main") != std::string::npos) /*returns pos or pos max*/
-        {
-            Copy(line, outfile);
-            std::cout << "main found in position: " << line.find("main") << std::endl;
-        }
+        newLine = replace(line, s1, s2);   
+        outfile << newLine << std::endl;
         line.clear();
     }
     infile.close();
@@ -60,12 +68,9 @@ void CopyAndReplace(std::string filename, std::string s1, std::string s2)
 
 int main(int argc, char *argv[])
 {
-    // if(argc == 4)
+    if(argc == 4)
     {
         CopyAndReplace(argv[1], argv[2], argv[3]);
     }
-    
     return 0;
-
 }
-
