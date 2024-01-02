@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 13:43:25 by anouri            #+#    #+#             */
-/*   Updated: 2023/12/26 17:20:46 by anouri           ###   ########.fr       */
+/*   Updated: 2024/01/02 15:06:48 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ HumanB::HumanB(std::string const &name, Weapon &weapon): _name(name)
 
 HumanB::HumanB(std::string name): _name(name)
 {
+    _weapon = NULL;
     std::cout << _name << " was created" << std::endl;   
 }
 HumanB::~HumanB()

@@ -5,29 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:55:55 by anouri            #+#    #+#             */
-/*   Updated: 2023/12/27 18:02:16 by anouri           ###   ########.fr       */
+/*   Created: 2024/01/02 16:04:16 by anouri            #+#    #+#             */
+/*   Updated: 2024/01/02 16:23:14 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-/*bonjour main hello main main main helooooooool main*/
+/*main bonjour main hello main main main heloooooooo main*/
 std::string replace(std::string const line, std::string s1, std::string s2)
 {
     std::string newLine;
     size_t pos = 0;
     size_t found;
+
     while (pos < line.length())
     {
         if((found = line.find(s1, pos)) != std::string::npos)
         {
-            std::cout << found << std::endl;
             newLine += line.substr(pos, found - pos);
             newLine += s2;
-            std::cout << newLine << std::endl;
             pos = found + s1.length();
-            // newLine += line.substr(pos);
         }
         else
         {
@@ -46,17 +44,16 @@ void CopyAndReplace(std::string filename, std::string s1, std::string s2)
     std::ifstream infile(filename); 
     if (!infile)
     {
-        std::cerr << "Error opening input file: " << "hh.cpp" << std::endl;
+        std::cerr << "Error opening input file: " << filename << std::endl;
         return;
     }
-    std::ofstream outfile("newfile");
+    std::ofstream outfile("newfile.replace");
     if (!outfile)
     {
-        std::cerr << "Error opening output file: newfile" << std::endl;
+        std::cerr << "Error opening output file: newfile.replace" << std::endl;
         return;
     }
-    while (infile >> line)
-    while(getline (infile, line))
+    while(std::getline(infile, line))
     {
         newLine = replace(line, s1, s2);   
         outfile << newLine << std::endl;
@@ -68,9 +65,16 @@ void CopyAndReplace(std::string filename, std::string s1, std::string s2)
 
 int main(int argc, char *argv[])
 {
-    if(argc == 4)
+    if(argc != 4)
     {
-        CopyAndReplace(argv[1], argv[2], argv[3]);
+        std::cout << "wrong arguments number" << std::endl;
+        return(1);
     }
+    if (std::string(argv[2]).empty())
+    {
+        std::cout << "EROOR, empty string" << std::endl;
+        return(1);
+    }
+    CopyAndReplace(argv[1], argv[2], argv[3]);
     return 0;
 }

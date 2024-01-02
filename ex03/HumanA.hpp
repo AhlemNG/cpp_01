@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 09:49:39 by anouri            #+#    #+#             */
-/*   Updated: 2023/12/26 15:37:54 by anouri           ###   ########.fr       */
+/*   Updated: 2024/01/02 13:16:45 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,9 @@ class HumanA
         * A reference must be initialized from the beginning
         * Once initialized, it can't be changed
         * dereferened implicitly
-    ot
+    or
     a pointer to Weapon?
         * it is best practice to initialize a pointer
         * it can be changed to point to another variable...
         * dereferencing is manual and explicit
 */
-
-
-/* A pointer to a weapon => create/ destrot*/
-/* A reference => from te beginnig?*/
