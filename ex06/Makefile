@@ -6,7 +6,7 @@
 #    By: anouri <anouri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 14:29:57 by anouri            #+#    #+#              #
-#    Updated: 2023/12/28 12:06:04 by anouri           ###   ########.fr        #
+#    Updated: 2024/01/03 16:15:16 by anouri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ all: ${NAME}
 ${NAME}: ${OBJS}
 		${CC} ${FLAGS} ${OBJS} -o ${NAME}
 
-%.o: %.c 
-		${CC} ${FLAGS} -cpp $< -o $@
+%.o: %.cpp 
+		${CC} ${FLAGS} -c $< -o $@
 
 clean:
 	${RM} ${OBJS}

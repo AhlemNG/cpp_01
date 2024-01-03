@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:58:39 by anouri            #+#    #+#             */
-/*   Updated: 2024/01/02 12:38:15 by anouri           ###   ########.fr       */
+/*   Updated: 2024/01/03 16:34:34 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ bool isValidLevel(std::string level)
 {
     if (std::isupper(level[0]))
     {
-        for (char &c: level)
-            c = std::tolower(c);
+        int i = 0;
+        while(level[i])
+        {
+            level[i] = tolower(level[i]);
+            i++;
+        }
         if (!level.compare("debug") || !level.compare("info") || !level.compare("warning") || !level.compare("error"))
             return true;
     }
@@ -36,5 +40,6 @@ int main(int argc, char *argv[])
         if (isValidLevel(level))
             harl.complain(level);
     }
+    
     return 0;
 }

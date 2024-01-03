@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 16:04:16 by anouri            #+#    #+#             */
-/*   Updated: 2024/01/02 16:23:14 by anouri           ###   ########.fr       */
+/*   Updated: 2024/01/03 16:00:31 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void CopyAndReplace(std::string filename, std::string s1, std::string s2)
     std::string line;
     std::string newLine;
     
-    std::ifstream infile(filename); 
-    if (!infile)
+    std::ifstream infile(filename.c_str()); 
+    if (!infile.is_open())
     {
         std::cerr << "Error opening input file: " << filename << std::endl;
         return;
     }
-    std::ofstream outfile("newfile.replace");
-    if (!outfile)
+    std::ofstream outfile((filename + ".replace").c_str());
+    if (!outfile.is_open())
     {
         std::cerr << "Error opening output file: newfile.replace" << std::endl;
         return;
