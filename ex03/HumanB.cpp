@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 13:43:25 by anouri            #+#    #+#             */
-/*   Updated: 2024/01/02 15:06:48 by anouri           ###   ########.fr       */
+/*   Updated: 2024/01/18 14:13:42 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void HumanB::attack()
 {
     if (this->_weapon != NULL)
         std::cout <<  _name << " attacks with their " <<  this->_weapon->getType() << std::endl;
+    else
+        std::cout <<  _name << " cannot attack it has no weapon" << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &club)

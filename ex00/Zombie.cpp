@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:41:12 by anouri            #+#    #+#             */
-/*   Updated: 2024/01/03 15:31:18 by anouri           ###   ########.fr       */
+/*   Updated: 2024/01/18 14:05:35 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 Zombie::Zombie(std::string name)
 {
    _name = name;
+   std::cout << _name << " has been constructed" << std::endl;
+
 }
 
 Zombie::~Zombie()
